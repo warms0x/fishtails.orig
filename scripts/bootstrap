@@ -1,0 +1,10 @@
+#!/bin/sh
+
+source "$(dirname $0)/base.sh"
+
+fail_unless_on
+
+for pkg in git ruby-puppet; do
+    echo ">> installing ${pkg}"
+    $(dirname $0)/ssh default "sudo pkg_add -m -U ${pkg}"
+done

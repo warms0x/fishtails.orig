@@ -1,0 +1,8 @@
+#!/bin/sh
+
+source "$(dirname $0)/base.sh"
+
+fail_unless_on
+ensure_ssh_config
+
+exec scp -F ${SSHCONFIG} $@
